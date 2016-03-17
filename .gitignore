@@ -31,3 +31,9 @@ node_modules
 
 # Optional REPL history
 .node_repl_history
+
+# target dir for storing the compiled file
+target
+
+# config dir for storing the config file locally
+config
