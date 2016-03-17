@@ -1,0 +1,19 @@
+{
+  "name": "nodejs-practise-server",
+  "version": "0.0.1",
+  "description": "nodejs-practise-server-project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/betisyeon/nodejs-practise-server.git"
+  },
+  "author": "betis yeon <betis.yeon@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/betisyeon/nodejs-practise-server/issues"
+  },
+  "homepage": "https://github.com/betisyeon/nodejs-practise-server#readme"
+}
