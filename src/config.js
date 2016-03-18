@@ -8,6 +8,6 @@
  */
 
 module.exports = function (set, get, has) {
-  // 设置服务器端口
+  // 设置服务器监听端口
   set('web.port', 3000);
 };
