@@ -20,6 +20,7 @@
   },
   "homepage": "https://github.com/betisyeon/nodejs-practise-server#readme",
   "dependencies": {
+    "mongoose": "^4.4.7",
     "project-core": "0.0.16"
   },
   "devDependencies": {

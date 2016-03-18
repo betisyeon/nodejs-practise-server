@@ -9,7 +9,7 @@
 
 import Path from 'path';
 import ProjectCore from 'project-core';
-
+import Mongoose from 'mongoose';
 
 const $ = global.$ = new ProjectCore();
 
@@ -24,6 +24,11 @@ $.init.add((done) => {
   done();
 });
 
+// 初始化MongoDB
+$.init.load(Path.resolve(__dirname, 'init', 'mongodb.js'));
+// 加载Models文件夹中的所有文件
+$.init.load(Path.resolve(__dirname, 'models'));
+
 // 初始化
 $.init((err) => {
   if (err) {
@@ -32,4 +37,12 @@ $.init((err) => {
   } else {
     console.log('inited [env=%s].', $.env);
   }
+
+  const item = new $.model.User({
+    name: `User${$.utils.date('Ymd')}`,
+    password: '123456',
+    nickname: '测试用户'
+  });
+
+  item.save(console.log);
 });
