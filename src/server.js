@@ -38,7 +38,8 @@ $.init.add((done) => {
 $.init.load(Path.resolve(__dirname, 'init', 'mongodb.js'));
 // 加载Models文件夹中的所有文件
 $.init.load(Path.resolve(__dirname, 'models'));
-
+// 加载methods
+$.init.load(Path.resolve(__dirname, 'methods'));
 // 初始化Express
 $.init.load(Path.resolve(__dirname, 'init', 'express.js'));
 // 初始化路由
@@ -52,6 +53,7 @@ $.init((err) => {
   } else {
     console.log('inited [env=%s].', $.env);
   }
+  require('./test');
 /*
   const item = new $.model.User({
     name: `User${$.utils.date('Ymd')}`,

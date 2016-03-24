@@ -16,7 +16,9 @@ module.exports = function (done) {
   const User = new Schema({
     name: {type: 'String', unique: true},
     password  : String,
-    nickname  : String
+    nickname  : String,
+    email: String,
+    about: {type: 'String'}
   });
 
   $.mongodb.model('User', User);
