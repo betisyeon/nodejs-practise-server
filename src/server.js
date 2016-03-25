@@ -53,7 +53,7 @@ $.init((err) => {
   } else {
     console.log('inited [env=%s].', $.env);
   }
-  require('./test');
+  //require('./test');
 /*
   const item = new $.model.User({
     name: `User${$.utils.date('Ymd')}`,

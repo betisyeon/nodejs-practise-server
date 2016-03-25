@@ -16,12 +16,12 @@ $.method('user.add').call({
 }, console.log);
 */
 
-
+/*
 $.method('user.get').call({
   name: 'hello',
   //name: 'dwasssdfasdfasdfs',
 }, console.log);
-
+*/
 /*
 $.method('user.update').call({
   name: 'hello',

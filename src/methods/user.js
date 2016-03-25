@@ -76,7 +76,7 @@ module.exports = function (done) {
     }
     const update = {};
     if (params.name && user.name !== params.name) update.name = params.name;
-    if (params.email && user.email !== params.name) update.email = params.email;
+    if (params.email && user.email !== params.email) update.email = params.email;
     if (params.password) update.password = params.password;
     if (params.nickname) update.nickname = params.nickname;
     if (params.about) update.about = params.about;
