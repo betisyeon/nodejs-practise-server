@@ -28,7 +28,12 @@ $.init.add((done) => {
   const env = process.env.NODE_ENV || null;
   if (env) {
     debug('load env: %s', env);
-    $.config.load(Path.resolve(__dirname, '../config', env + '.js'));
+    try {
+      $.config.load(Path.resolve(__dirname, '../config', env + '.js'));
+    } catch (err) {
+      console.log(new Error(err));
+    }
+    // $.config.load(Path.resolve(__dirname, '../config', env + '.js'));
   }
   $.env = env;
   done();
