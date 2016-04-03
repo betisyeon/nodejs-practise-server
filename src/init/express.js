@@ -12,7 +12,9 @@ import serveStatic from 'serve-static';
 import bodyParser from 'body-parser';
 import Multiparty from 'connect-multiparty';
 import session from 'express-session';
-
+/*import _RedisStore from 'connect-redis';
+const RedisStore = _RedisStore(session);
+*/
 module.exports = function (done) {
 
   const debug = $.createDebug('init:express');
@@ -25,6 +27,7 @@ module.exports = function (done) {
   app.use(Multiparty());
   app.use(session({
     secret: $.config.get('web.session.secret'),
+    //store: new RedisStore($.config.get('web.session.redis')),
   }));
 
   const router = Express.Router();
@@ -35,13 +38,21 @@ module.exports = function (done) {
       fnList = fnList.map(fn => {
         return function(req, res, next){
           const ret = fn(req, res, next);
-          if (ret.catch) ret.catch(next);
+          //if (ret.catch) ret.catch(next);
+          if (ret && ret.catch) ret.catch(next);
         };
       });
       router[method](path, ...fnList);
     };
   });
   $.router = routerWrap;
+
+  app.use(function (req, res, next) {
+    res.apiSuccess = function (data) {
+      res.json({success: true, result: data});
+    };
+    next();
+  });
 
   app.use(router);
   app.use('static', serveStatic(Path.resolve(__dirname, '../../static')));

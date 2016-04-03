@@ -8,7 +8,7 @@
     "watch": "npm run clean && babel src -d target --watch",
     "compile": "npm run clean && babel src -d target",
     "clean": "rm -Rf target",
-    "devServer": "export NODE_ENV=dev && export DEBUG='My*' && node target/server.js"
+    "devServer": "export NODE_ENV=dev && export DEBUG='My*,project-core:*' && node target/server.js"
   },
   "repository": {
     "type": "git",
